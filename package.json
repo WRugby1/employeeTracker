@@ -1,0 +1,26 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer": "^6.2.1",
+    "jquery": "^3.5.1",
+    "mysql": "^2.16.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WRugby1/employeeTracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WRugby1/employeeTracker/issues"
+  },
+  "homepage": "https://github.com/WRugby1/employeeTracker#readme"
+}
