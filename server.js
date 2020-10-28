@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "Weberrugby1",
+    password: "",
     database: "_employeecms"
 });
 
@@ -277,17 +277,23 @@ function addEmployee() {
             message: "Please select a role: ",
             choices: roleSelect,
             name: "role"
-        }]).then(data =>
+        }]).then(data => {
+            var roleid = connection.query(
+                "SELECT id FROM role WHERE ?", {
+                    title: data.role
+                }
+            );
+            console.log(roleid);
             connection.query("INSERT INTO employee SET ?",
                 {
                     first_name: data.firstName,
                     last_name: data.lastName,
-                    role_id: connection.query(
-                        "SELECT id FROM role WHERE title = '" + data.role + "'"
-                    )
+                    role_id: roleid,
                     // manager_id: manager_id(data)
                 },
-            ));
+            )}
+            );
+        
         // let managers = [];
         // connection.query("SELECT * FROM EMPLOYEE", function (err, data) {
         //     if (err) throw err;
